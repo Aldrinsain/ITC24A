@@ -17,7 +17,7 @@ class LeafletMap {
         this.btnclear = document.getElementById('btnclear');
         this.logCountElement = document.getElementById('logCount');
         this.logCount1Element = document.getElementById('logCountBA');
-        this.logCount2Element = document.getElementById('logCountCCS');
+        this.logCount2Element = document.getElementById('logCountPINYAHAN');
         this.idContainer = document.getElementById('logContainer');
         this.btn.addEventListener('click', () => this.dataSc());
         this.btn1.addEventListener('click', () => this.dataLab());
@@ -62,8 +62,9 @@ class LeafletMap {
 
     clearLogs(){
         this.attendanceCountSC = 0;
-        this.attendanceCountBA = 0;
         this.attendanceCountLab = 0;
+        this.attendanceCountGwapo = 0;
+        this.attendanceCountBA = 0;
 
         this.loggedData = [];
         this.markerCounts = {}; 
@@ -78,25 +79,31 @@ class LeafletMap {
 
     displayLogCount() {      
         this.logCountElement.innerHTML = `SC  GOAT: ${this.attendanceCountSC}`;
+        this.logCount2Element.innerHTML = `PINYAHAN GOAT: ${this.attendanceCountLab}`;
+        this.logCount1Element.innerHTML = `GWAPO  GOAT: ${this.attendanceCountGwapo}`;
         this.logCount1Element.innerHTML = `BA  GOAT: ${this.attendanceCountBA}`;
-        this.logCount2Element.innerHTML = `CCS GOAT: ${this.attendanceCountLab}`;
+       
    }
 
     dataSc() {
-        this.addMarker(8.360238, 124.867470, 'SC GOAT');
+        this.addMarker(8.3601987, 124.8594032, 'SC GOAT');
         this.attendanceCountSC++; 
         this.updateLogDisplay();
-    }
-
-    dataBa() {
-        this.addMarker(8.359134, 124.868537, 'BA GOAT');
-        this.attendanceCountBA++;
-        this.updateLogDisplay();
-    }
+    } 
     
     dataLab() {
-        this.addMarker(8.359639, 124.869179, 'CCS GOAT');
+        this.addMarker(8.35966, 124.869569, 'PINYAHAN GOAT');
         this.attendanceCountLab++;
+        this.updateLogDisplay();
+    }
+    dataBa() {
+        this.addMarker(8.3579248,  124.8666358, 'GWAPO GOAT');
+        this.attendanceCountGwapo++;
+        this.updateLogDisplay();
+    }
+    dataBa() {
+        this.addMarker(8.3548458,  124.8644220, 'BA GOAT');
+        this.attendanceCountBA++;
         this.updateLogDisplay();
     }
 
