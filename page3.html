@@ -1,80 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+    <title>Leaflet Map</title>
+    <style>
+        .container {
+            width: 95%;
+            margin-top: 2rem;
+            margin-left: 2rem;
+            justify-content: center;
+        }
+
+        #map {
+            width: 100%;
+            height: 450px;
+        }
+
+        #btnclear {
+            margin-left: 15rem;
+        }
+
+        .breed-description {
+            font-size: 20px;
+            margin-top: 5rem;
+        }
+
+        .breed-image {
+            background-repeat: no-repeat;
+            background-size: cover;
+            height: 50rem;
+        }
+    </style>
 </head>
+
 <body>
+
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <img src="/assets/12.png" alt="Logo" style="width: 30px; height: 30px;">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="link.html">Link</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Dropdown
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="Page3.html">Breeds of Goat</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="/page4.html">About us</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="/page5.html">Employee</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+
     <div class="container">
         <div class="row">
-          <div class="col-md-6">
-            <div
-              style="
-                background-image: url(/11.png);
-                height: 50rem;
-                width: 50%;
-                background-repeat: no-repeat;
-                background-size: cover;
-              "
-            ></div>
-            <div
-              class="col-md-6"
-              style="font-size: 40 px; margin-top: 5rem"
-            ></div>
-            <p></p>
-          </div>
-    <div class="col-md-6" style="font-size: 40px; margin-top: 5rem">
-        <h1>La Mancha</h1>
-        <p style="display: flex">
-            La Mancha
-            
-            Playful, smart, clever and affectionate
-            
-            Very small ears in two types, Gopher Ear or Elf Ear
-            
-            
-            Originated in Oregon, the only breed developed in the US 
-            
-            Little ears, big personality, sure to steal your heart!
-        </p>
-      </div>
+            <!-- La Mancha Section -->
+            <div class="col-md-6">
+                <div class="breed-image" style="background-image: url(/assets/11.png);"></div>
+            </div>
+            <div class="col-md-6 breed-description">
+                <h1>La Mancha</h1>
+                <p>La Mancha: Playful, smart, clever and affectionate</p>
+                <p>Very small ears in two types: Gopher Ear or Elf Ear</p>
+                <p>Originated in Oregon, the only breed developed in the US</p>
+                <p>Little ears, big personality, sure to steal your heart!</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Nubian Section -->
+            <div class="col-md-6">
+                <div class="breed-image" style="background-image: url(/13.png);"></div>
+            </div>
+            <div class="col-md-6 breed-description">
+                <h1>Nubian</h1>
+                <p>Nubian: Known for their long floppy ears and round roman noses</p>
+                <p>They are the most vocal of the goat breeds</p>
+                <p>Often one of the more sensitive breeds of goats</p>
+                <p>One of the larger breeds</p>
+            </div>
+        </div>
+        href="./page2.html"
+        <button type="button" class="btn btn-secondary">back</button>
       
+    </div>
+
 </body>
-<body>
-    <div class="container">
-        <div class="row">
-          <div class="col-md-6">
-            <div
-              style="
-                background-image: url(/13.png);
-                height: 50rem;
-                width: 50%;
-                background-repeat: no-repeat;
-                background-size: cover;
-              "
-            ></div>
-            <div
-              class="col-md-6"
-              style="font-size: 40 px; margin-top: 5rem"
-            ></div>
-            <p></p>
-          </div>
-    <div class="col-md-6" style="font-size: 40px; margin-top: 5rem">
-        <h1>Nubian</h1>
-        <p style="display: flex">
-            Nubian
-        
-            Their trademark is long floppy ears and round roman noses
-            
-            Known for being the most vocal of the goat breeds
-            
-            Often one of the more sensitive breeds of goats
-            
-            One of the larger breeds
-            
-            
-        </p>
-      </div>
-</body>
+
 </html>
