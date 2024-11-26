@@ -1,21 +1,19 @@
 [
     {
-        "latitude": 8.3601987,
-        "longitude" : 124.8594032,
-        "message" : "SC GOAT"
+        "latitude":8.3601987,
+        "longitude": 124.8594032 ,
+        "message": "SC GOAT"
     },
-      
     {
         "latitude": 8.999639,
-        "longitude" : 99124.999179,
-        "message" : "PINYAHAN GOAT"
+        "longitude": 99124.999179,
+        "message": "PINYAHAN GOAT"
     },
     {
         "latitude":8.3579248,
-        "longitude" : 124.8666358,
-        "message" : "GWAPO GOAT"
+        "longitude": 124.8666358,
+        "message": "GWAPO GOAT"
     },
-
     {
         "latitude":8.3548458,
         "longitude" : 124.8644220,

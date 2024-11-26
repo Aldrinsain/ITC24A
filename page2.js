@@ -3,10 +3,12 @@ class LeafletMap {
     constructor(containerId, center, zoom) {
         this.map = L.map(containerId).setView(center, zoom);
         this.initTileLayer();
-
-        this.attendanceCountSC = 0;
+        
+        this.attendanceCountTEP = 0;
+        this.attendanceCountCSS = 0;
         this.attendanceCountBA = 0;
-        this.attendanceCountLab = 0;
+        this.attendanceCountGOAT= 0;
+
         this.markerCounts = {};
         this.markers = [];
         this.loggedData = []; 
@@ -14,28 +16,34 @@ class LeafletMap {
         this.btn = document.getElementById('btn');
         this.btn1 = document.getElementById('btn1');
         this.btn2 = document.getElementById('btn2');
+        this.btn3 = document.getElementById('btn3');
         this.btnclear = document.getElementById('btnclear');
-        this.logCountElement = document.getElementById('logCount');
-        this.logCount1Element = document.getElementById('logCountBA');
-        this.logCount2Element = document.getElementById('logCountPINYAHAN');
+        this.logCountElement = document.getElementById('logCountTEP');
+        this.logCount1Element = document.getElementById('logCountCCS');
+        this.logCount2Element = document.getElementById('logCountBA');
+        this.logCount3Element = document.getElementById('logCountGOAT');
         this.idContainer = document.getElementById('logContainer');
-        this.btn.addEventListener('click', () => this.dataSc());
-        this.btn1.addEventListener('click', () => this.dataLab());
-        this.btn2.addEventListener('click', () => this.dataBa());
+
+        this.btn.addEventListener('click', () => this.dataTEP());
+        this.btn1.addEventListener('click', () => this.dataCSS());
+        this.btn2.addEventListener('click', () => this.dataBA());
+        this.btn3.addEventListener('click', () => this.dataGOAT());
         this.btnclear.addEventListener('click', () => this.clearLogs());
+
     }
 
     initTileLayer() {
-        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             maxZoom: 19,
-            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors | Sample for new corales BSIT student'
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         }).addTo(this.map);
     }
-      
-    addMarker(lat, long, message){
-        const marker = L.marker([lat, long]).addTo(this.map)
+
+    addMarker(lat, long, message) {
+        const marker = L.marker([lat, long]).addTo(this.map);
         this.markerCounts[message] = (this.markerCounts[message] || 0) + 1;
         this.updateMarkerPopup(marker, message);
+
         marker.on('click', () => {
             this.markerCounts[message]++;
             this.updateMarkerPopup(marker, message);
@@ -43,28 +51,27 @@ class LeafletMap {
 
         this.markers.push(marker);
     }
-
+    
     updateMarkerPopup(marker, message) {
         const count = this.markerCounts[message];
         marker.bindPopup(`${message}<br>Attendance logs: ${count}`).openPopup();
     }
-
     loadMarkersFromJson(url) {
         fetch(url)
-        .then(response => response.json())
-        .then(data => {
-            data.forEach(marker => {
-                this.addMarker(marker.latitude, marker.longitude, marker.message);
-            });
-        })
-        .catch(error => console.error("Error Loading servers:", error));
+            .then(response => response.json())
+            .then(data => {
+                data.forEach(marker => {
+                    this.addMarker(marker.latitude, marker.longitude, marker.message);
+                });
+            })
+            .catch(error => console.error("Error loading servers:", error));
     }
-
-    clearLogs(){
-        this.attendanceCountSC = 0;
-        this.attendanceCountLab = 0;
-        this.attendanceCountGwapo = 0;
+    
+    clearLogs() {
+        this.attendanceCountTEP = 0;
+        this.attendanceCountCSS = 0;
         this.attendanceCountBA = 0;
+        this.attendanceCountGOAT = 0;
 
         this.loggedData = [];
         this.markerCounts = {}; 
@@ -76,34 +83,36 @@ class LeafletMap {
 
         this.updateLogDisplay();
     }
-
-    displayLogCount() {      
-        this.logCountElement.innerHTML = `SC  GOAT: ${this.attendanceCountSC}`;
-        this.logCount2Element.innerHTML = `PINYAHAN GOAT: ${this.attendanceCountLab}`;
-        this.logCount1Element.innerHTML = `GWAPO  GOAT: ${this.attendanceCountGwapo}`;
-        this.logCount1Element.innerHTML = `BA  GOAT: ${this.attendanceCountBA}`;
-       
-   }
-
-    dataSc() {
-        this.addMarker(8.3601987, 124.8594032, 'SC GOAT');
-        this.attendanceCountSC++; 
-        this.updateLogDisplay();
-    } 
     
-    dataLab() {
-        this.addMarker(8.35966, 124.869569, 'PINYAHAN GOAT');
-        this.attendanceCountLab++;
+    displayLogCount() {      
+        this.logCountElement.innerHTML = `TEP Building Attendance: ${this.attendanceCountTEP}`;
+        this.logCount1Element.innerHTML = `CSS Building Attendance: ${this.attendanceCountCSS}`;
+        this.logCount2Element.innerHTML = `BA Building Attendance: ${this.attendanceCountBA}`;
+        this.logCount3Element.innerHTML = `GOAT Building Attendance: ${this.attendanceCountGOAT}`;
+    }
+
+    
+    dataTEP() {
+        this.addMarker(8.3601987, 124.8594032, 'TEP Building');
+        this.attendanceCountTEP++; 
         this.updateLogDisplay();
     }
-    dataBa() {
-        this.addMarker(8.3579248,  124.8666358, 'GWAPO GOAT');
-        this.attendanceCountGwapo++;
+
+    
+    dataCSS() {
+        this.addMarker(8.359576, 124.869183, 'CSS Building');
+        this.attendanceCountCSS++;
         this.updateLogDisplay();
     }
-    dataBa() {
-        this.addMarker(8.3548458,  124.8644220, 'BA GOAT');
+
+    dataBA() {
+        this.addMarker(8.359141, 124.868592, 'BA Building');
         this.attendanceCountBA++;
+        this.updateLogDisplay();
+    }
+    dataGOAT() {
+        this.addMarker(8.3548458, 124.8644220, 'BA GOAT');
+        this.attendanceCountGOAT++;
         this.updateLogDisplay();
     }
 
@@ -112,18 +121,19 @@ class LeafletMap {
         this.loggedData.forEach(data => {
             const logItem = document.createElement('div');
             logItem.className = 'log-item';
+            logItem.textContent = data; 
             this.idContainer.appendChild(logItem);
         });
         this.displayLogCount();
     }
-
 }
-const Mymap = new LeafletMap('map', [8.359735, 124.869206], 18);
+    const Mymap = new LeafletMap('map', [8.359735, 124.869206], 18);
+    Mymap.loadMarkersFromJson('applet-2.json');
+    
+    document.addEventListener('DOMContentLoaded', () => {
+        Mymap.displayLogCount();
+    });
+
+  
 
 
-Mymap.loadMarkersFromJson('page2.json');
-
-document.addEventListener('DOMContentLoaded', () => {
-    Mymap.displayLogCount();
-    Mymap.loadMarkersFromJson('page2.json');
-});
