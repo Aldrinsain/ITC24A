@@ -54,7 +54,7 @@ class LeafletMap {
     
     updateMarkerPopup(marker, message) {
         const count = this.markerCounts[message];
-        marker.bindPopup(`${message}<br>Attendance logs: ${count}`).openPopup();
+        marker.bindPopup(`${message}<br>Attendance: ${count}`).openPopup();
     }
     loadMarkersFromJson(url) {
         fetch(url)
@@ -85,15 +85,15 @@ class LeafletMap {
     }
     
     displayLogCount() {      
-        this.logCountElement.innerHTML = `TEP Building Attendance: ${this.attendanceCountTEP}`;
-        this.logCount1Element.innerHTML = `CSS Building Attendance: ${this.attendanceCountCSS}`;
-        this.logCount2Element.innerHTML = `BA Building Attendance: ${this.attendanceCountBA}`;
-        this.logCount3Element.innerHTML = `GOAT Building Attendance: ${this.attendanceCountGOAT}`;
+        this.logCountElement.innerHTML = `American Pygmy Goats: ${this.attendanceCountTEP}`;
+        this.logCount1Element.innerHTML = `Nubian Goats : ${this.attendanceCountCSS}`;
+        this.logCount2Element.innerHTML = `Alpine Goat Grazing : ${this.attendanceCountBA}`;
+        this.logCount3Element.innerHTML = `Tennessee Goats : ${this.attendanceCountGOAT}`;
     }
 
     
     dataTEP() {
-        this.addMarker(8.3601987, 124.8594032, 'TEP Building');
+        this.addMarker(8.3601987, 124.8594032, '');
         this.attendanceCountTEP++; 
         this.updateLogDisplay();
     }

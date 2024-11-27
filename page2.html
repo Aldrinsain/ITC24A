@@ -7,7 +7,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-    <title>Applet 2 - Leaflet Map</title>
+    <title>Applet 2 -  Map</title>
     <style>
         .applet-container{
             margin-top: 1rem;
@@ -41,24 +41,25 @@
     </style>
     
 </head>
-<nav class="navbar bg-dark border-bottom border-body" data-bs-theme="dark">
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
-    <a class="navbar-brand" href="index.html">Home</a>
+    <a class="navbar-brand" href="#">ITC</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/index.html">Home</a>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-         Apps
+            Dropdown
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="applet-1.html">Applet 1 - Basic Events </a></li>
-            <li><a class="dropdown-item" href="applet-2.html">Applet 2 - leaflet Map </a></li>
-            <li><a class="dropdown-item" href="applet-3.html">Applet 3 - Button Logger </a></li>
-
+            <li><a class="dropdown-item" href="#"></a></li>
+            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
           </ul>
     </div>
   </div>
@@ -67,22 +68,27 @@
 
 <body>
 
-  <div class="input-group input-group-lg applet-searchbar mb-4">
-      <span class="input-group-text" id="inputGroup-sizing-lg">Search</span>
-      <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" placeholder="Type to search...">
+<form class="d-flex" role="search">
+<input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+<button class="btn btn-outline-success" type="submit">Search</button>
+</form>
+</div>
+</div>
+</nav>
+
   </div>
   <div class="container">
-    <h2>Leaflet Map</h2>
+    <h2>Goat Map</h2>
     <div id="map"></div>
     <div class="btn-container">
       <h4 id="logCountTEP">Attendance Count: </h4>
-      <button class="btn btn-primary" id="btn">SC GOAT</button>
+      <button class="btn btn-primary" id="btn">add</button>
           <h4 id="logCountCCS">Attendance Count: </h4>
-          <button class="btn btn-primary" id="btn1">PINYAHAN GOAT</button>
+          <button class="btn btn-primary" id="btn1">add</button>
                <h4 id="logCountBA">Attendance Count: </h4>
-               <button class="btn btn-primary" id="btn2">GWAPO GOAT</button>
+               <button class="btn btn-primary" id="btn2">add</button>
                   <h4 id="logCountGOAT">Attendance Count: </h4>
-                  <button class="btn btn-primary" id="btn3">BA GOAT</button>
+                  <button class="btn btn-primary" id="btn3">add</button>
                      <div id="logContainer"></div> 
                      <button class="btn btn-primary" id="btnclear">Clear</button>
     </div>
