@@ -5,57 +5,138 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #b9ac7e;
+        }
+        header {
+            background-color: #91a2af;
+            color: rgb(65, 114, 146);
+            padding: 10px 0;
+            text-align: center;
+        }
+        section {
+            padding: 20px;
+            margin: 20px;
+            background-color: white;
+            border-radius: 8px;
+        }
+        h1 {
+            color: #0c0c0c;
+        }
+        p {
+            font-size: 16px;
+            line-height: 1.6;
+        }
+        .team {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+        .team-member {
+            margin: 10px;
+            width: 200px;
+            text-align: center;
+        }
+        .team-member img {
+            width: 100%;
+            border-radius: 50%;
+        }
+        footer {
+            background-color: #82848d;
+            color: rgb(8, 8, 8);
+            text-align: center;
+            padding: 5px 0;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+    </style>
 </head>
 
 <body>
- 
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <div class="container-fluid">
-            <img src="/assets/LOGO.png" alt="Logo" style="width: 50px; height: 50px;">
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="/index.html">Home</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            More
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="/page3.html">BREEDS OF GOATS</a></li>
-                            <li><hr class="dropdown-divider" /></li>
-                            <li><a class="dropdown-item" href="/page5.html">EMPLOYEE</a></li>
-                        </ul>
-                    </li>
-                </ul>
-                
-            </div>
-        </div>
-    </nav>
 
-    <section class="about-us">
-        <h2 style="font-size: 50px; margin-left: 20px;">About Us</h2>
-        <div class="content">
-            <img src="/assets/TEAMPHOTO.png" style="width: 100%; height: 700px;" alt="Our Team" class="team-photo">
-            <div class="col-md-6" style="font-size: 35px; margin-top: 1rem;width: 101%; height: 50%; display: flex; justify-content: space-between; flex-wrap: wrap;">
-                <div style="flex: 6; padding-right: 1rem;margin-left: 20px;">
-                    <p>Welcome to Internet Tracking Company, where we are committed to providing exceptional services to our clients. Our team is dedicated to excellence and innovation, ensuring that every client gets the best experience possible.</p>
-                    <p>Founded in [Year], we have grown to become a leading provider in our industry. With a team of passionate and skilled professionals, we strive to deliver high-quality results every time.</p>
-                    <p>Our mission is to [your mission statement]. We believe in building lasting relationships with our clients and being a trusted partner in their success.</p>
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+        <img src="/assets/LOGO.png" alt="Logo" style="width: 50px; height: 50px;">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/index.html">Home</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        More
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="/page3.html">BREEDS OF GOATS</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<header>
+    <h1>About Us</h1>
+</header>
+
+<div class="content">
+    <img src="/assets/TEAMPHOTO.png" style="width: 100%; height: 700px;" alt="Our Team" class="team-photo">
+    <div class="col-md-6" style="font-size: 35px; margin-top: 1rem;width: 101%; height: 50%; display: flex; justify-content: space-between; flex-wrap: wrap;">
+        <div style="flex: 6; padding-right: 10rem;margin-left: 20px;width: 100px;height:100%;">
+            <h1>Welcome to Our Company!</h1>
+            <p>Welcome to Internet Tracking Company, where we are committed to providing exceptional services to our clients.
+                Our team is dedicated to excellence and innovation, 
+                ensuring that every client gets the best experience possible.</p>
+            <p>Founded in 2024, we have grown to become a leading provider in our industry.
+                With a team of passionate and skilled professionals, 
+                we strive to deliver high-quality results every time.</p>
+            <p>Our mission is to [your mission statement]. We believe in building lasting
+                    relationships with our clients and being a trusted partner in their success.</p>
+
+            <h2>Meet Our Team</h2>
+            <div class="team" style="display: flex; justify-content: flex-start; gap: 20px; flex-wrap: wrap;">
+                <div class="team-member" style="width: 120px; text-align: center; margin-left: 50px;">
+                    <img src="/assets/aldrinpic.jpg" alt="Team Member 1" 
+                    style="width: 120%; border-radius: 50%;">
+                    <h4>Aldrin P. Sain</h4>
+                    <p>Founder & CEO</p>
+                </div>
+                <div class="team-member" style="width: 120px; text-align: center; margin-left: 100px;">
+                    <img src="/assets/aldrinpic.jpg" alt="Team Member 2" 
+                    style="width: 120%; border-radius: 50%;">
+                    <h3 style="margin: 5; font-size: 25px;">Jane Smith</h3>
+                    <p style="font-size: 14px;">Lead Developer</p>
+                </div>
+                <div class="team-member" style="width: 120px; text-align: center; margin-left: 100px;">
+                    <img src="/assets/aldrinpic.jpg" alt="Team Member 3" 
+                    style="width: 120%; border-radius: 50%;">
+                    <h4>Kurt Jastin Fabria</h4>
+                    <p>Tracker Director</p>
                 </div>
             </div>
-            
+            <div class="info" style="position: absolute; top: 1095px; right: 50px; font-size: 20px; background-color: rgba(194, 186, 161, 0.8);width:-70px; padding: 70px; border-radius: 5px;">
+                <h1 style="font-size: 30px;">Information:</h1>
+                <p>Email: <a href="mailto:support@example.com" style="font-size: 18px;">support@example.com</a></p>
+                <p>Phone: 09388712246</p>
+                <p>Address: 123 Example St, City, Country</p>
+            </div>
         </div>
-    </section>
+    </div>
+</div>
+<footer>
+    <div class="col-md-6" style="font-size: 30px;width: 101%; height: 50%; margin-top: 1rem;">
+        <p>&copy; 2024 Internet Tracking Company. All rights reserved.</p>
+    </div>
+</footer>
 
-    <footer>
-        <div class="col-md-6" style="font-size: 23px; margin-top: 1rem;">
-            <p>&copy; 2024 [Company Name]. All rights reserved.</p>
-        </div>
-    </footer> 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

@@ -90,28 +90,29 @@ class LeafletMap {
         this.logCount2Element.innerHTML = `Alpine Goat Grazing : ${this.attendanceCountBA}`;
         this.logCount3Element.innerHTML = `Tennessee Goats : ${this.attendanceCountGOAT}`;
     }
+    
 
     
     dataTEP() {
-        this.addMarker(8.3601987, 124.8594032, '');
+        this.addMarker(8.3601987, 124.8594032, 'American Pygmy');
         this.attendanceCountTEP++; 
         this.updateLogDisplay();
     }
 
     
     dataCSS() {
-        this.addMarker(8.359576, 124.869183, 'CSS Building');
+        this.addMarker(8.359576, 124.869183, 'Nubian');
         this.attendanceCountCSS++;
         this.updateLogDisplay();
     }
 
     dataBA() {
-        this.addMarker(8.359141, 124.868592, 'BA Building');
+        this.addMarker(8.359141, 124.868592, 'Alpine Goat Grazing');
         this.attendanceCountBA++;
         this.updateLogDisplay();
     }
     dataGOAT() {
-        this.addMarker(8.3548458, 124.8644220, 'BA GOAT');
+        this.addMarker(8.3548458, 124.8644220, 'Tennessee Goats');
         this.attendanceCountGOAT++;
         this.updateLogDisplay();
     }

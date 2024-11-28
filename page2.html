@@ -9,38 +9,79 @@
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
     <title>Applet 2 -  Map</title>
     <style>
-        .applet-container{
-            margin-top: 1rem;
-            margin-left: 2rem;
-            width: 90%;
+       body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #b9ac7e;
         }
-        #map {
-            height: 600px;
+        header {
+            background-color: #35b83b;
+            color: rgb(65, 114, 146);
+            padding: 10px 0;
+            text-align: center;
+        }
+        section {
+            padding: 20px;
+            margin: 20px;
+            background-color: white;
+            border-radius: 8px;
+        }
+        h1 {
+            color: #0c0c0c;
+        }
+        p {
+            font-size: 16px;
+            line-height: 1.6;
+        }
+        .container {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 2rem;
+            padding: 1rem;
         }
         
-        .btn-container{
-          justify-items: auto;
-          margin-top: 2rem;
-          background: linear-gradient(to top right, rgb(231, 219, 219), rgb(182, 182, 197)) ;
-          border-radius: 15px;
-          padding: 3rem;
+        #map {
+            height: 600px;
+            width: 70%; 
         }
 
-        .btn-container h4{
+        .btn-container {
+            width: 28%;
+            background: linear-gradient(to top right, rgb(231, 219, 219), rgb(182, 182, 197));
+            border-radius: 15px;
+            padding: 2rem;
+            margin-right: 1rem;
+        }
+
+        .btn-container h4 {
             margin-bottom: 1.5rem;
         }
-        .btn-container button{
-           margin-bottom: 1.5rem;
+
+        .btn-container button {
+            margin-bottom: 1.5rem;
         }
 
         .btn-container #btnclear {
-           margin-left: 15rem;
+            margin-left: auto;
+            display: block;
+        }
+
+        footer {
+            background-color: #82848d;
+            color: rgb(8, 8, 8);
+            text-align: center;
+            padding: 5px 0;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
         }
         
-        
     </style>
-    
+
 </head>
+<body>
+
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
     <img src="/assets/LOGO.png" alt="Logo" style="width: 50px; height: 50px;">
@@ -53,48 +94,65 @@
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="/index.html">Home</a>
+        </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             More
           </a>
           <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="/page4.html">ABOUT US</a></li>
-            <li><a class="dropdown-item" href="/page5.html">EMPLOYEE</a></li>
+
           </ul>
+        </li>
+      </div>
+      <a href="./page5.html"
+        type="button"
+        class="btn btn-success"
+        style="width: 110px;margin-left:1000 px; margin-left:1rem; position: relative"
+      >
+        Date&Time
+      </a>
+      </div>
+      </ul>
+      <form class="d-flex" role="search">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+
     </div>
   </div>
 </nav>
 
+<header>
+  <h1>GOAT MAP</h1>
+</header>
 
-<body>
+<div class="container">
 
-<form class="d-flex" role="search">
-<input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-<button class="btn btn-outline-success" type="submit">Search</button>
-</form>
-</div>
-</div>
-</nav>
-
+  <div class="btn-container">
+    <h4 id="logCountTEP">Attendance Count: </h4>
+    <button class="btn btn-primary" id="btn">Add</button>
+    <h4 id="logCountCCS">Attendance Count: </h4>
+    <button class="btn btn-primary" id="btn1">Add</button>
+    <h4 id="logCountBA">Attendance Count: </h4>
+    <button class="btn btn-primary" id="btn2">Add</button>
+    <h4 id="logCountGOAT">Attendance Count: </h4>
+    <button class="btn btn-primary" id="btn3">Add</button>
+    <div id="logContainer"></div>
+    <button class="btn btn-primary" id="btnclear">Clear</button>
   </div>
-  <div class="container">
-    <h2>Goat Map</h2>
-    <div id="map"></div>
-    <div class="btn-container">
-      <h4 id="logCountTEP">Attendance Count: </h4>
-      <button class="btn btn-primary" id="btn">add</button>
-          <h4 id="logCountCCS">Attendance Count: </h4>
-          <button class="btn btn-primary" id="btn1">add</button>
-               <h4 id="logCountBA">Attendance Count: </h4>
-               <button class="btn btn-primary" id="btn2">add</button>
-                  <h4 id="logCountGOAT">Attendance Count: </h4>
-                  <button class="btn btn-primary" id="btn3">add</button>
-                     <div id="logContainer"></div> 
-                     <button class="btn btn-primary" id="btnclear">Clear</button>
-    </div>
-      
-</div>
  
+  <div id="map"></div>
+</div>
+
+<script src="/page2.js"></script>
+
+<footer>
+  <div class="col-md-6" style="font-size: 30px;width: 101%; height: 50%; margin-top: 0rem;">
+    <p>&copy; 2024 Internet Tracking Company. All rights reserved.</p>
+  </div>
+</footer>
+
 </body>
-        <script src="/page2.js"></script>
+
 </html>
