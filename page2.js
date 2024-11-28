@@ -8,6 +8,7 @@ class LeafletMap {
         this.attendanceCountCSS = 0;
         this.attendanceCountBA = 0;
         this.attendanceCountGOAT= 0;
+        this.attendanceCountKiko= 0;
 
         this.markerCounts = {};
         this.markers = [];
@@ -17,17 +18,20 @@ class LeafletMap {
         this.btn1 = document.getElementById('btn1');
         this.btn2 = document.getElementById('btn2');
         this.btn3 = document.getElementById('btn3');
+        this.btn4 = document.getElementById('btn4');
         this.btnclear = document.getElementById('btnclear');
         this.logCountElement = document.getElementById('logCountTEP');
         this.logCount1Element = document.getElementById('logCountCCS');
         this.logCount2Element = document.getElementById('logCountBA');
         this.logCount3Element = document.getElementById('logCountGOAT');
+        this.logCount4Element = document.getElementById('logCountKkiko');
         this.idContainer = document.getElementById('logContainer');
 
         this.btn.addEventListener('click', () => this.dataTEP());
         this.btn1.addEventListener('click', () => this.dataCSS());
         this.btn2.addEventListener('click', () => this.dataBA());
         this.btn3.addEventListener('click', () => this.dataGOAT());
+        this.btn4.addEventListener('click', () => this.dataKiko());
         this.btnclear.addEventListener('click', () => this.clearLogs());
 
     }
@@ -72,6 +76,7 @@ class LeafletMap {
         this.attendanceCountCSS = 0;
         this.attendanceCountBA = 0;
         this.attendanceCountGOAT = 0;
+        this.attendanceCountKiko = 0;
 
         this.loggedData = [];
         this.markerCounts = {}; 
@@ -87,8 +92,9 @@ class LeafletMap {
     displayLogCount() {      
         this.logCountElement.innerHTML = `American Pygmy Goats: ${this.attendanceCountTEP}`;
         this.logCount1Element.innerHTML = `Nubian Goats : ${this.attendanceCountCSS}`;
-        this.logCount2Element.innerHTML = `Alpine Goat Grazing : ${this.attendanceCountBA}`;
+        this.logCount2Element.innerHTML = `Alpine Grazing : ${this.attendanceCountBA}`;
         this.logCount3Element.innerHTML = `Tennessee Goats : ${this.attendanceCountGOAT}`;
+        this.logCount4Element.innerHTML = `Kiko Goats : ${this.attendanceCountKiko}`;
     }
     
 
@@ -107,7 +113,7 @@ class LeafletMap {
     }
 
     dataBA() {
-        this.addMarker(8.359141, 124.868592, 'Alpine Goat Grazing');
+        this.addMarker(8.359141, 124.868592, 'Alpine Grazing');
         this.attendanceCountBA++;
         this.updateLogDisplay();
     }
@@ -116,6 +122,12 @@ class LeafletMap {
         this.attendanceCountGOAT++;
         this.updateLogDisplay();
     }
+    dataKiko() {
+        this.addMarker(8.3578238, 124.8666672, 'Kiko goat');
+        this.attendanceCountKiko++;
+        this.updateLogDisplay();
+    }
+
 
     updateLogDisplay() {
         this.idContainer.innerHTML = ''; 

@@ -1,94 +1,111 @@
-class TodoList {
+class WeatherApp {
     constructor() {
-        this.editingIndex = -1;
-        this.addButton = document.getElementById('addButton');
-        this.todoInput = document.getElementById('todoInput');
-        this.todoList = document.getElementById('todoList');
+        //API Key
+        this.apiKey = document.getElementById('apiKeyInput');
+        
+        //Text Input
+        this.cityInput = document.getElementById('cityInput');
+        this.getWeatherBtn = document.getElementById('getWeatherBtn');
 
-        this.addButton.addEventListener('click', () => this.addOrUpdateTask());
-        this.todoList.addEventListener('click', (e) => {
-            const action = e.target.classList.contains('removeButton') ? 'remove' : 
-                           e.target.classList.contains('editButton') ? 'edit' : 
-                           e.target.classList.contains('doneButton') ? 'done' : null;
-            if (action) this[action + 'Task'](e);
-        });
-    }
+        //Geolocation Input
+        this.getLocationBtn = document.getElementById('getLocationBtn');
 
-    addOrUpdateTask() {
-        const taskText = this.todoInput.value.trim();
-        if (taskText) {
-            this.editingIndex === -1 ? this.addTask(taskText) : this.updateTask(taskText);
-            this.todoInput.value = '';
-        }
-    }
-    addTask(taskText) {
-        const listItem = document.createElement('li');
-        listItem.className = 'list-group-item todo-item';
-        listItem.innerHTML = `
-            <span class="task-text">${taskText}</span>
-            <span class="timestamp" style="display: block; margin-top: 0.5rem; color: gray;">Date Added: ${new Date().toLocaleString()}</span>
-            <div style="margin-top: 0.5rem;">
-                <button class="btn btn-success btn-sm doneButton">Done</button>
-                <button class="btn btn-warning btn-sm editButton">Edit</button>
-                <button class="btn btn-danger btn-sm removeButton">Remove</button>
-            </div>
-        `;
-        this.todoList.appendChild(listItem);
-    }
-    doneTask(event) {
-        const taskItem = event.target.closest('.todo-item');
-        const taskText = taskItem.querySelector('.task-text');
-        taskText.classList.toggle('completed'); 
+        //Weather Card
+        this.weatherCard = document.getElementById('weatherCard');
+        this.cityName = document.getElementById('cityName');
+        this.temperature = document.getElementById('temperature');
+        this.description = document.getElementById('description');
+        this.humidity = document.getElementById('humidity');
+        this.windSpeed = document.getElementById('windSpeed');
 
-        const buttons = taskItem.querySelectorAll('button');
-        buttons.forEach(button => button.disabled = true);
+        //Event Listener
+        this.getWeatherBtn.addEventListener('click', () => this.fetchWeather());
+        this.getLocationBtn.addEventListener('click', () => this.fetchWeatherByLocation());
     }
 
-    updateTask(taskText) {
-        this.todoList.children[this.editingIndex].querySelector('.task-text').textContent = taskText;
-        this.resetEditing();
+    displayWeather(data) {
+        this.cityName.textContent = `${data.name}, ${data.sys.country} (${data.coord.lat}, ${data.coord.lon})`;
+        this.temperature.textContent = `Temperature: ${data.main.temp} °C`;
+        this.description.textContent = `Weather: ${data.weather[0].description}`;
+        this.humidity.textContent = `Humidity: ${data.main.humidity}%`;
+        this.windSpeed.textContent = `Wind Speed: ${data.wind.speed} m/s`;
+        
+        // Set the weather icon
+        const iconCode = data.weather[0].icon;
+        const iconUrl = `https://openweathermap.org/img/wn/${iconCode}@2x.png`;
+        document.getElementById('weatherIcon').src = iconUrl;
+    
+        this.weatherCard.style.display = 'block';
     }
-    removeTask(event) {
-        this.todoList.removeChild(event.target.closest('.todo-item'));
-    }
-    editTask(event) {
-        const taskItem = event.target.closest('.todo-item');
-        this.todoInput.value = taskItem.querySelector('.task-text').textContent;
-        this.editingIndex = Array.from(this.todoList.children).indexOf(taskItem);
-        this.addButton.textContent = 'Update';
-    }
-
-    resetEditing() {
-        this.editingIndex = -1;
-        this.addButton.textContent = 'Add';
-    }
+    
     
 }
 
-class TimestampedTodoList extends TodoList {
-    addTask(taskText) {
-        super.addTask(taskText);
-        const taskItem = this.todoList.lastChild;
-        const timestamp = document.createElement('span');
-        timestamp.className = 'timestamp';
-        timestamp.textContent = new Date().toLocaleString();
-        taskItem.appendChild(timestamp);
+class WeatherService extends WeatherApp {
+    async fetchWeather() {
+        const apiKey = this.apiKey.value
+        const city = this.cityInput.value;
+        if (city) {
+            const data = await this.getWeatherData(city,apiKey);
+            if (data) {
+                this.displayWeather(data,apiKey);
+            } else {
+                alert('City not found. Please try again.');
+            }
+        } else {
+            alert('Please enter a city name.');
+        }
+    }
+
+    async fetchWeatherByLocation() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(
+                async (position) => {
+                    const { latitude, longitude } = position.coords;
+                    const data = await this.getWeatherDataByCoordinates(latitude, longitude);
+                    if (data) {
+                        this.displayWeather(data);
+                        this.cityInput.value = '';
+                    } else {
+                        alert('Unable to retrieve weather data for your location.');
+                    }
+                },
+                () => {
+                    alert('Unable to retrieve your location. Please allow location access.');
+                }
+            );
+        } else {
+            alert('Geolocation is not supported by this browser.');
+        }
+    }
+
+    async getWeatherData(city,apiKey) {
+        try {
+            const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`);
+            if (response.ok) {
+                return await response.json();
+            }
+        } catch (error) {
+            console.error('Error fetching weather data:', error);
+        }
+        return null;
+    }
+
+    async getWeatherDataByCoordinates(latitude, longitude, apiKey) {
+        try {
+            const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`);
+            if (response.ok) {
+                return await response.json();
+            }
+        } catch (error) {
+            console.error('Error fetching weather data by coordinates:', error);
+        }
+        return null;
     }
 }
+const weatherApp = new WeatherService();
 
-document.addEventListener('DOMContentLoaded', () => new TodoList());
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+document.addEventListener('DOMContentLoaded', () => {
+    const modal = new bootstrap.Modal(document.getElementById('infoModal'));
+    modal.show();
+});
