@@ -2,26 +2,31 @@
     {
         "latitude": 8.3601987,
         "longitude": 124.8594032,
-        "message": "SC GOAT"
+        "message": "SC GOAT",
+        "image": "images/sc-goat.jpg"
     },
     {
         "latitude": 8.999639,
-        "longitude": 99124.999179,
-        "message": "PINYAHAN GOAT"
+        "longitude": 124.999179,
+        "message": "PINYAHAN GOAT",
+        "image": "images/pinyahan-goat.jpg"
     },
     {
         "latitude": 8.3579248,
         "longitude": 124.8666358,
-        "message": "GWAPO GOAT"
+        "message": "GWAPO GOAT",
+        "image": "images/gwapo-goat.jpg"
     },
     {
         "latitude": 8.3548458,
         "longitude": 124.8644220,
-        "message": "BA GOAT"
+        "message": "BA GOAT",
+        "image": "images/ba-goat.jpg"
     },
     {
         "latitude": 8.3578238,
         "longitude": 124.8666672,
-        "message": "KIKO GOAT"
+        "message": "KIKO GOAT",
+        "image": "images/kiko-goat.jpg"
     }
 ]
