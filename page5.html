@@ -104,8 +104,8 @@
 <body>
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
-            <a class="navbar-brand" href="../index.html">Home</a>
-            <a href="./page2.html" class="btn btn-primary ms-2">Back</a>
+            <a class="navbar-brand" href="index.html">Home</a>
+            <a href="page2.html" class="btn btn-primary ms-2">Back</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -115,14 +115,11 @@
     <header>
         <h2>Weather App</h2>
     </header>
-
-    <!-- Main Content -->
     <div class="container">
         <div class="text-center">
             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#infoModal" style="margin-top: 2rem;">Enter City Info</button>
         </div>
 
-        <!-- Weather Card -->
         <div class="card weather-card" id="weatherCard">
             <img id="weatherIcon" src="" alt="Weather Icon">
             <h2 id="cityName"></h2>
@@ -132,8 +129,6 @@
             <p id="windSpeed"></p>
         </div>
     </div>
-
-    <!-- Modal for User Input -->
     <div class="modal fade" id="infoModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -142,7 +137,6 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <!-- API Key and City Inputs -->
                     <div class="mb-3">
                         <input type="text" class="form-control" id="apiKeyInput" placeholder="Enter API Key" style="font-size: 90%;">
                     </div>
@@ -161,8 +155,6 @@
     <footer>
         <p>&copy; 2024 Internet Tracking Company. All rights reserved.</p>
     </footer>
-
-    <!-- External JavaScript -->
     <script src="page5.js"></script>
 </body>
 </html>
