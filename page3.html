@@ -10,67 +10,133 @@
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 
     <title>Leaflet Map</title>
-    <style>
-         
-        header {
-            background-color: #518cb9;
+    <style> header {
+            background-color: #35b83b;
             color: rgb(65, 114, 146);
             padding: 10px 0;
             text-align: center;
         }
+
         section {
             padding: 20px;
             margin: 20px;
             background-color: white;
             border-radius: 8px;
         }
+
         h1 {
             color: #0c0c0c;
         }
+
         p {
             font-size: 16px;
             line-height: 1.6;
         }
+
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
             background-color: #b9ac7e;
         }
+
         .container {
             width: 95%;
             margin-top: 2rem;
             margin-left: 2rem;
             justify-content: center;
         }
-
-        #map {
+        .breed-image {
+            background-repeat: no-repeat;
+            background-size: cover;
+            height: 200px;
             width: 100%;
-            height: 450px;
-        }
-
-        #btnclear {
-            margin-left: 15rem;
+            margin-bottom: 20px;
+            background-position: center;
         }
 
         .breed-description {
             font-size: 20px;
-            margin-top: 5rem;
-        }
-
-        .breed-image {
-            background-repeat: no-repeat;
-            background-size: cover;
-            height: 50rem;
+            margin-top: 1rem;
         }
         footer {
-    background-color: #82848d;
-    color: rgb(8, 8, 8);
-    text-align: center;
-    padding: 5px 0;
-    position: fixed;
+            background-color: #82848d;
+            color: rgb(8, 8, 8);
+            text-align: center;
+            padding: 5px 0;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+        .row-cols-md-2 {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .col-md-6 {
+            flex: 1 1 45%;
+            margin-right: 10px;
+        }
+        * {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial;
+  padding: 20px;
+  background: #f1f1f1;
+}
+.header {
+  padding: 30px;
+  font-size: 40px;
+  text-align: center;
+  background: white;
+}
+.leftcolumn {
+  float: left;
+  width: 75%;
+}
+.rightcolumn {
+  float: left;
+  width: 25%;
+  padding-left: 20px;
+}
+
+.fakeimg {
+  background-color: #aaa;
+  width: 100%;
+  padding: 20px;
+}
+.card {
+  background-color: white;
+  padding: 20px;
+  margin-top: 20px;
+}
+.breed-image {
+    background-size: cover;
+    background-position: center;
     width: 100%;
-    bottom: 0;
+    height: 200px; 
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+
+.footer {
+  padding: 20px;
+  text-align: center;
+  background: #ddd;
+  margin-top: 20px;
+}
+@media screen and (max-width: 800px) {
+  .leftcolumn, .rightcolumn {
+    width: 100%;
+    padding: 0;
+  }
 }
     </style>
 </head>
@@ -88,18 +154,21 @@
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="index.html">Home</a>
                     </li>
-
-                    </li>
+                </ul>
+            </li>
+               </ul>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             More
                         </a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="page4.html">ABOUT US</a></li>
-                            
-                          
                         </ul>
                     </li>
+
+                        </ul>
+
+                     </li>
                 </ul>
                 <form class="d-flex" role="search">
                     <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
@@ -108,22 +177,38 @@
             </div>
         </div>
     </nav>
+
     <header>
-        <h1>BREEDS PF GOATS</h1>
+        <h1>BREEDS OF GOATS</h1>
     </header>
-    <div class="container">
-        <div class="row">
-        
+    <div class="header">
+        <h2>Blog Name</h2>
+      </div>
+      
+      <div class="row">
+        <div class="leftcolumn" style="width: 1000px;">
+          <div class="card"style=" background-color: rgba(184, 74, 165, 0.8);">
+            <h2>TITLE HEADING</h2>
+            <h5>Title description, Dec 7, 2017</h5>
+            <div class="fakeimg" style="height:300px;">Image</div>
+            <p>Some text..</p>
+          </div>
+          </div> 
+        </div>
+        <div class="rightcolumn" style="margin-top: -30.1rem; margin-left:61rem;">
+          <div class="card" style=" background-color: rgba(184, 74, 165, 0.8);">
+            <h2>About Me</h2>
+            <div class="fakeimg" style="height:272px; margin-top: 2em;">Image</div>
+            <p>Some text about me in culpa qui officia deserunt mollit anim..</p>
+          </div>
+        </div>
+    </div>
+     </div>
+     <div class="container" style="margin-left:-0.9rem; margin-right: -100rem;">
+    
+        <div class="row row-cols-md-2"> 
             <div class="col-md-6">
-                <div class="breed-image" style="
-                    background-image: url('assets/11.png');
-                    height: 30rem;
-                    width: 100%;
-                    background-repeat: no-repeat;
-                    background-size: cover;
-                    margin-bottom: 20px; /* Space between image and description */
-                    background-position: center;
-                "></div>
+                <div class="breed-image" style="background-image: url('assets/11.png');"></div>
             </div>
             <div class="col-md-6 breed-description" style="padding: 20px;">
                 <h1>American Pygmy Goats</h1>
@@ -132,19 +217,9 @@
                 <p>Angora goats are expensive and difficult to find in most locations, making Pygora an economical fiber goat choice for many homesteaders.</p>
             </div>
         </div>
-    
-        <div class="row">
-            
+        <div class="row row-cols-md-2">
             <div class="col-md-6">
-                <div class="breed-image" style="
-                    background-image: url('assets/10.png');
-                    height: 30rem; /* Adjust height as needed */
-                    width: 100%;
-                    background-repeat: no-repeat;
-                    background-size: cover;
-                    margin-bottom: 20px; /* Adds spacing between image and description */
-                    background-position: center;
-                "></div>
+                <div class="breed-image" style="background-image: url('assets/10.png');"></div>
             </div>
             <div class="col-md-6 breed-description" style="padding: 20px;">
                 <h1>Nubian Goats</h1>
@@ -153,19 +228,9 @@
                 <p>Their distinctive floppy ears make them one of the most easily recognizable goat breeds in the United States.</p>
             </div>
         </div>
-    
-        <div class="row">
-            
+        <div class="row row-cols-md-2">
             <div class="col-md-6">
-                <div class="breed-image" style="
-                    background-image: url('assets/14.png');
-                    height: 420px;
-                    width: 100%;
-                    background-repeat: no-repeat;
-                    background-size: cover;
-                    margin-bottom: 20px; /* Adds spacing between image and description */
-                    background-position: center;
-                "></div>
+                <div class="breed-image" style="background-image: url('assets/14.png');"></div>
             </div>
             <div class="col-md-6 breed-description" style="padding: 20px;">
                 <h1>Alpine Goat Grazing</h1>
@@ -173,19 +238,9 @@
                 <p>It has a higher butterfat count than Nubians, but the high percentage does not make it as suitable for cheese as other famed dairy goat breeds.</p>
             </div>
         </div>
-    
-        <div class="row">
-            
+        <div class="row row-cols-md-2">
             <div class="col-md-6">
-                <div class="breed-image" style="
-                    background-image: url('assets/15.png');
-                    height: 500px; /* Adjust height as needed */
-                    width: 100%;
-                    background-repeat: no-repeat;
-                    background-size: cover;
-                    margin-bottom: 20px; /* Adds spacing between image and description */
-                    background-position: center;
-                "></div>
+                <div class="breed-image" style="background-image: url('assets/15.png');"></div>
             </div>
             <div class="col-md-6 breed-description" style="padding: 20px;">
                 <h1>Tennessee Goats</h1>
@@ -194,38 +249,30 @@
                 <p>The so-called fainting is not painful for the Tennessee goat breed. These goats were traditionally raised for their meat but are more often kept now as farm pets.</p>
             </div>
         </div>
-        <div class="row">
-            
+        <div class="row row-cols-md-2">
             <div class="col-md-6">
-                <div class="breed-image" style="
-                    background-image: url('assets/16.png');
-                    height: 500px; /* Adjust height as needed */
-                    width: 100%;
-                    background-repeat: no-repeat;
-                    background-size: cover;
-                    margin-bottom: 20px; /* Adds spacing between image and description */
-                    background-position: center;
-                "></div>
+                <div class="breed-image" style="background-image: url('assets/16.png');"></div>
             </div>
             <div class="col-md-6 breed-description" style="padding: 20px;">
                 <h1>Kiko Goats</h1>
                 <p>Goats of these breeds are known to be perhaps the hardiest you can purchase. They thrive in rugged and cold climates but appear to adapt well in all but tropical regions.</p>
                 <p>Kiko goats are top-quality meat goats and often sell for less than the more broadly popular Boer goats.</p>
-                <div >
-
-                </div>
             </div>
-            </div>
+        </div>
+    </div>
+    <div class="card" style="background-color: rgba(184, 74, 165, 0.8); margin-top: 10px;">
+        <div class="fakeimg" style="height: 150px; background-color: #ddd; margin: 20px 0;">Image</div><br>
+        <p style="padding: 0 20px;">Some text about me in culpa qui officia deserunt mollit anim..</p>
+    </div>
+    <div class="card" style="background-color: rgba(184, 74, 165, 0.8); margin-top: 20px;">
+        <div class="card-body text-center">
+            <a href="page7.html" class="btn btn-outline-light">See More</a>
+        </div>
+    </div>
+    <div class="col-md-6 breed-description" style="padding: 20px;"></div>
+    <footer>
+        <p>&copy; 2024 Internet Tracking Company. All rights reserved.</p>
+    </footer>
+</body>
 
-                <footer>
-                    <div class="col-md-6" style="font-size: 30px;width: 101%; height: 50%; margin-top: 0rem;">
-                      <p>&copy; 2024 Internet Tracking Company. All rights reserved.</p>
-                    </div>
-                  </footer>
-    
-     <h2></h2>
-      </div>
-        </body>
-             </html>
-                  
-                    
+</html>
