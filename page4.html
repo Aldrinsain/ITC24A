@@ -6,11 +6,14 @@
     <title>About Us</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #b9ac7e;
+       body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url('assets/background.png');
+    background-size: cover;
+    background-position: center; 
+    background-repeat: no-repeat; 
         }
         header {
             background-color: #35b83b;
@@ -24,8 +27,14 @@
             background-color: white;
             border-radius: 8px;
         }
+        h2 {
+            color: #ffffff;
+        }
+        h3 {
+            color: #000000;
+        }
         h1 {
-            color: #0c0c0c;
+            color: #02ca23;
         }
         p {
             font-size: 16px;
@@ -102,6 +111,8 @@
                   actionUrl = 'seemore.html';
                 } else if (query.includes("date and time ")) {
                   actionUrl = 'page7.html';
+                } else if (query.includes("home")) {
+                    actionUrl = 'index.html';
                 } else if (query.includes("weather")) {
                   actionUrl = 'page5.html';
                 } else if (query.includes("about us")) {
@@ -124,14 +135,14 @@
 </nav>
 
 <header>
-    <h1>About Us</h1>
+    <h3 style="font-size: 3rem;font-weight: bold; ">About Us</h3>
 </header>
 
 <div class="content">
     <img src="assets/TEAMPHOTO.png" style="width: 100%; height: 700px;" alt="Our Team" class="team-photo">
     <div class="col-md-6" style="font-size: 35px; margin-top: 1rem;width: 101%; height: 50%; display: flex; justify-content: space-between; flex-wrap: wrap;">
         <div style="flex: 6; padding-right: 10rem;margin-left: 20px;width: 100px;height:100%;">
-<h1 style="font-size: 3rem; font-weight: bold;" >Welcome to Our Company!</h1> <p style="font-size: 1.3rem;">Welcome to Internet Tracking Company, where we are committed to providing exceptional services to our clients. Our team is dedicated to excellence and innovation, ensuring that every client receives the highest level of service.
+<h1 style="font-size: 3rem; font-weight: bold;" >Welcome to Our Company!</h1> <h2><p style="font-size: 1.3rem;">Welcome to Internet Tracking Company, where we are committed to providing exceptional services to our clients. Our team is dedicated to excellence and innovation, ensuring that every client receives the highest level of service.
      Whether you're an individual or a business, we tailor our solutions to meet your specific needs, 
      helping you achieve your goals with precision and efficiency. At the heart of our company is a passion
       for technology, and we leverage the latest advancements to offer cutting-edge solutions in internet
@@ -149,32 +160,33 @@
               we aim to be a trusted partner in our clients' journeys, enabling them to thrive in an
                ever-evolving digital landscape. Join us at Internet Tracking Company, where your success 
                is our priority.</p>
-            <h2>Meet Our Team</h2>
+            </h2>
+            <h1>Meet Our Team</h1>
             <div class="team" style="display: flex; justify-content: flex-start; gap: 20px; flex-wrap: wrap;">
                 <div class="team-member" style="width: 120px; text-align: center; margin-left: 50px;">
                     <img src="assets/aldrinpic.jpg" alt="Team Member 1" 
                     style="width: 120%; border-radius: 50%;">
-                    <h4>Aldrin P. Sain</h4>
-                    <p>Founder & CEO</p>
+                    <h2>Aldrin P. Sain</h2>
+                    <h2><p>Founder & CEO</p></h2>
                 </div>
                 <div class="team-member" style="width: 120px; text-align: center; margin-left: 100px;">
                     <img src="assets/jmm.png" alt="Team Member 2" 
                     style="width: 120%; border-radius: 50%;">
-                    <h3 style="margin: 5; font-size: 25px;">Jm Cabrera</h3>
-                    <p style="font-size: 14px;">Lead Developer</p>
+                    <h2 style="margin: 5; font-size: 25px;">Jm Cabrera</h2>
+                    <h2><p style="font-size: 14px;">Lead Developer</p></h2>
                 </div>
                 <div class="team-member" style="width: 120px; text-align: center; margin-left: 100px;">
                     <img src="assets/fabrira.png" alt="Team Member 3" 
                     style="width: 120%; border-radius: 50%;">
-                    <h4>Kurt Jastin Fabria</h4>
-                    <p>Tracker Director</p>
+                    <h2>Kurt Jastin Fabria</h2>
+                    <h2><p>Tracker Director</p></h2>
                 </div>
             </div>
             <div class="info" style="position: absolute; top: 1500px;height: 270px; right: 50px; font-size: 20px; background-color: rgba(194, 186, 161, 0.8);width:-70px; padding: 70px; border-radius: 5px;">
-                <h1 style="font-size: 25px;">Information:</h1>
-                <p>Email: <a href="mailto:support@example.com" style="font-size: 18px;">support@example.com</a></p>
-                <p>Phone: 09388712246</p>
-                <p>Address: 123 Example St, City, Country</p>
+                <h3 style="font-size: 25px;">Information:</h3>
+                <p style="font-weight: bold;">Email: <a href="mailto:support@example.com" style="font-size: 18px;">support@example.com</a></p>
+                <p style="font-weight: bold;">Phone: 09388712246</p>
+                <p style="font-weight: bold;">Address: 123 Example St, City, Country</p>
             </div>
         </div>
     </div> 
