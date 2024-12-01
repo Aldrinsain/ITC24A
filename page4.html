@@ -63,6 +63,91 @@
             width: 100%;
             bottom: 0;
         }
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .team {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 50px;
+        }
+
+        .team-member {
+            width: 180px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .team-member img {
+            width: 100%;
+            border-radius: 50%;
+            transition: transform 0.3s ease;
+        }
+
+        .team-member:hover img {
+            transform: scale(1.1);
+        }
+
+        .team-member h2 {
+            margin-top: 10px;
+            font-size: 18px;
+        }
+
+        .team-member p {
+            font-size: 14px;
+        }
+
+        .info {
+            position: absolute;
+            top: 60%;
+            right: 50px;
+            font-size: 20px;
+            background-color: rgba(194, 186, 161, 0.8);
+            width: 250px;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transform: translateY(-50%);
+        }
+
+        .info h3 {
+            font-size: 25px;
+            margin-bottom: 10px;
+        }
+
+        .info p {
+            font-weight: bold;
+            margin: 5px 0;
+        }
+
+        .info a {
+            font-size: 18px;
+            color: #000;
+            text-decoration: none;
+        }
+
+        .info a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .team {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .info {
+                position: static;
+                transform: none;
+                margin-top: 20px;
+                right: auto;
+                width: 100%;
+                padding: 15px;
+            }
+        }
     </style>
 </head>
 
@@ -161,33 +246,34 @@
                ever-evolving digital landscape. Join us at Internet Tracking Company, where your success 
                is our priority.</p>
             </h2>
-            <h1>Meet Our Team</h1>
-            <div class="team" style="display: flex; justify-content: flex-start; gap: 20px; flex-wrap: wrap;">
-                <div class="team-member" style="width: 120px; text-align: center; margin-left: 50px;">
-                    <img src="assets/aldrinpic.jpg" alt="Team Member 1" 
-                    style="width: 120%; border-radius: 50%;">
-                    <h2>Aldrin P. Sain</h2>
-                    <h2><p>Founder & CEO</p></h2>
-                </div>
-                <div class="team-member" style="width: 120px; text-align: center; margin-left: 100px;">
-                    <img src="assets/jmm.png" alt="Team Member 2" 
-                    style="width: 120%; border-radius: 50%;">
-                    <h2 style="margin: 5; font-size: 25px;">Jm Cabrera</h2>
-                    <h2><p style="font-size: 14px;">Lead Developer</p></h2>
-                </div>
-                <div class="team-member" style="width: 120px; text-align: center; margin-left: 100px;">
-                    <img src="assets/fabrira.png" alt="Team Member 3" 
-                    style="width: 120%; border-radius: 50%;">
-                    <h2>Kurt Jastin Fabria</h2>
-                    <h2><p>Tracker Director</p></h2>
-                </div>
-            </div>
-            <div class="info" style="position: absolute; top: 1500px;height: 270px; right: 50px; font-size: 20px; background-color: rgba(194, 186, 161, 0.8);width:-70px; padding: 70px; border-radius: 5px;">
-                <h3 style="font-size: 25px;">Information:</h3>
-                <p style="font-weight: bold;">Email: <a href="mailto:support@example.com" style="font-size: 18px;">support@example.com</a></p>
-                <p style="font-weight: bold;">Phone: 09388712246</p>
-                <p style="font-weight: bold;">Address: 123 Example St, City, Country</p>
-            </div>
+            
+    <h1 style="text-align: center; margin-top: 50px;">Meet Our Team</h1>
+
+    <div class="team">
+        <div class="team-member">
+            <img src="assets/aldrinpic.jpg" alt="Aldrin P. Sain">
+            <h2>Aldrin P. Sain</h2>
+          <h2><p>Founder & CEO</p></h2>
+        </div>
+        <div class="team-member">
+            <img src="assets/jmm.png" alt="Jm Cabrera">
+            <h2>Jm Cabrera</h2>
+            <h2><p>Lead Developer</p></h2>
+        </div>
+        <div class="team-member">
+            <img src="assets/fabrira.png" alt="Kurt Jastin Fabria">
+            <h2>Kurt Jastin Fabria</h2>
+            <h2><p>Tracker Director</p></h2>
+        </div>
+    </div>
+
+    <div class="info" style="margin-top: 83rem;">
+        <h3>Information:</h3>
+        <p>Email: <a href="mailto:https://www.easykeeper.com/">support@example.com</a></p>
+        <p>Phone: 09388712246</p>
+        <p>Address: 123 Example St, City, Country</p>
+    </div>
+
         </div>
     </div> 
     <div class="col-md-6 breed-description" style="padding: 30px;"></div>

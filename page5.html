@@ -37,10 +37,13 @@
             max-width: 1200px;
             margin: 0 auto;
             padding: 20px;  
+        }
 
-        }.modal-body input {
+        .modal-body input {
             margin-bottom: 15px;
-        }.weather-card {
+        }
+
+        .weather-card {
             background: #f0f0f0;
             border-radius: 10px;
             padding: 20px;
@@ -75,7 +78,6 @@
             background-color: #406a97;
         }
 
-        
         @media (max-width: 768px) {
             .input-search {
                 width: 100%;
@@ -91,9 +93,7 @@
                 font-size: 1.2rem;
             }
         }
-
     </style>
-
 </head>
 <body>
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
@@ -109,6 +109,7 @@
     <header>
         <h2>Weather App</h2>
     </header>
+
     <div class="container">
         <div class="text-center">
             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#infoModal" style="margin-top: 2rem;">Enter City Info</button>
@@ -123,6 +124,8 @@
             <p id="windSpeed"></p>
         </div>
     </div>
+
+    <!-- Modal -->
     <div class="modal fade" id="infoModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -149,6 +152,78 @@
     <footer>
         <p>&copy; 2024 Internet Tracking Company. All rights reserved.</p>
     </footer>
-    <script src="page5.js"></script>
+
+    <!-- Scripts -->
+    <script>
+        const apiKeyInput = document.getElementById('apiKeyInput');
+        const cityInput = document.getElementById('cityInput');
+        const getWeatherBtn = document.getElementById('getWeatherBtn');
+        const getLocationBtn = document.getElementById('getLocationBtn');
+        const weatherCard = document.getElementById('weatherCard');
+        const weatherIcon = document.getElementById('weatherIcon');
+        const cityName = document.getElementById('cityName');
+        const temperature = document.getElementById('temperature');
+        const description = document.getElementById('description');
+        const humidity = document.getElementById('humidity');
+        const windSpeed = document.getElementById('windSpeed');
+
+        getWeatherBtn.addEventListener('click', () => {
+            const city = cityInput.value;
+            const apiKey = apiKeyInput.value;
+
+            if (city && apiKey) {
+                fetchWeatherData(city, apiKey);
+            } else {
+                alert('Please enter both city and API key.');
+            }
+        });
+
+        getLocationBtn.addEventListener('click', () => {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(position => {
+                    const { latitude, longitude } = position.coords;
+                    fetchWeatherDataByCoordinates(latitude, longitude);
+                });
+            } else {
+                alert('Geolocation is not supported by this browser.');
+            }
+        });
+
+        function fetchWeatherData(city, apiKey) {
+            fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`)
+                .then(response => response.json())
+                .then(data => {
+                    displayWeatherData(data);
+                })
+                .catch(error => {
+                    console.error(error);
+                    alert('Error fetching weather data.');
+                });
+        }
+
+        function fetchWeatherDataByCoordinates(lat, lon) {
+            const apiKey = apiKeyInput.value;
+            fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`)
+                .then(response => response.json())
+                .then(data => {
+                    displayWeatherData(data);
+                })
+                .catch(error => {
+                    console.error(error);
+                    alert('Error fetching weather data.');
+                });
+        }
+
+        function displayWeatherData(data) {
+            const weather = data.weather[0];
+            weatherCard.style.display = 'block';
+            cityName.textContent = data.name;
+            temperature.textContent = `${data.main.temp}°C`;
+            description.textContent = weather.description;
+            humidity.textContent = `Humidity: ${data.main.humidity}%`;
+            windSpeed.textContent = `Wind Speed: ${data.wind.speed} m/s`;
+            weatherIcon.src = `https://openweathermap.org/img/wn/${weather.icon}.png`;
+        }
+    </script>
 </body>
 </html>
