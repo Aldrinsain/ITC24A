@@ -138,7 +138,7 @@
                 taskSpan.textContent = taskText;
                 li.appendChild(taskSpan);
 
-                // Add a 'Mark as Completed' button
+               
                 const completeButton = document.createElement('button');
                 completeButton.classList.add('btn', 'btn-success', 'btn-sm');
                 completeButton.textContent = 'Complete';
@@ -148,9 +148,9 @@
 
                 li.appendChild(completeButton);
 
-                // Add the new task to the list
+                
                 todoList.appendChild(li);
-                todoInput.value = ''; // Clear input field
+                todoInput.value = ''; 
             }
         });
     </script>

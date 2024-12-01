@@ -1,16 +1,16 @@
 class WeatherApp {
     constructor() {
-        //API Key
+       
         this.apiKey = document.getElementById('apiKeyInput');
-        
-        //Text Input
+
+
         this.cityInput = document.getElementById('cityInput');
         this.getWeatherBtn = document.getElementById('getWeatherBtn');
 
-        //Geolocation Input
+        
         this.getLocationBtn = document.getElementById('getLocationBtn');
 
-        //Weather Card
+
         this.weatherCard = document.getElementById('weatherCard');
         this.cityName = document.getElementById('cityName');
         this.temperature = document.getElementById('temperature');
@@ -18,7 +18,7 @@ class WeatherApp {
         this.humidity = document.getElementById('humidity');
         this.windSpeed = document.getElementById('windSpeed');
 
-        //Event Listener
+        
         this.getWeatherBtn.addEventListener('click', () => this.fetchWeather());
         this.getLocationBtn.addEventListener('click', () => this.fetchWeatherByLocation());
     }
@@ -30,7 +30,7 @@ class WeatherApp {
         this.humidity.textContent = `Humidity: ${data.main.humidity}%`;
         this.windSpeed.textContent = `Wind Speed: ${data.wind.speed} m/s`;
         
-        // Set the weather icon
+     
         const iconCode = data.weather[0].icon;
         const iconUrl = `https://openweathermap.org/img/wn/${iconCode}@2x.png`;
         document.getElementById('weatherIcon').src = iconUrl;

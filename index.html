@@ -21,6 +21,7 @@
     <div class="container-fluid">
       <img src="assets/LOGO.png" alt="Logo" style="width: 50px; height: 50px;">
       <a class="navbar-brand" href="#"></a>
+      <a class="navbar-brand" href="https://www.easykeeper.com/">ITC</a>
       <button
         class="navbar-toggler"
         type="button"
@@ -48,35 +49,67 @@
             >
               More
             </a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="page3.html">BREEDS OF GOATS</a></li>
+            <ul class="dropdown-menu" style="background-color: #62ff77;">
+              <li><a class="dropdown-item" href="page3.html">Breeds of Goats</a></li>
               <li><hr class="dropdown-divider" /></li>
-              <li><a class="dropdown-item" href="page4.html">ABOUT US</a></li>
+              <li><a class="dropdown-item" href="page4.html">About Us</a></li>
               
             </ul>
           </li>
          
           </li>
-        </ul>
-        <form class="d-flex" role="search">
-          <input
-            class="form-control me-2"
-            type="search"
-            placeholder="Search"
-            aria-label="Search"
-          />
-          <button class="btn btn-outline-success" type="submit">Search</button>
-        </form>
+          
+          <form class="d-flex" role="search" method="GET" id="searchForm" style="margin-left: 54rem;">
+            <input
+              class="form-control me-2"
+              type="search"
+              placeholder="Search"
+              aria-label="Search"
+              name="query"
+              id="searchQuery"
+            />
+            <button class="btn btn-outline-success" type="submit">Search</button>
+          </form>
+
+          <script>
+            document.getElementById('searchForm').onsubmit = function(event) {
+              event.preventDefault();
+          
+              var query = document.getElementById('searchQuery').value.trim().toLowerCase(); 
+              var actionUrl = '';
+              if (query.includes("kanding")) {
+                actionUrl = 'seemore.html';
+              } else if (query.includes("date and time ")) {
+                actionUrl = 'page7.html';
+              } else if (query.includes("weather")) {
+                actionUrl = 'page5.html';
+              } else if (query.includes("about us")) {
+                actionUrl = 'page4.html';
+              } else if (query.includes("breeds of goats")) {
+                actionUrl = 'page3.html';
+              } else if (query.includes("map")) {
+                actionUrl = 'page2.html';
+              } else {
+                actionUrl = 'searchresults.html';
+              }
+              this.action = actionUrl;
+              this.submit();
+            };
+          </script>      
       </div>
     </div>
   </nav>
   <style>
      body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #b9ac7e;
-        }
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url('assets/background1.png');
+    background-size: cover;
+    background-position: center; 
+    background-repeat: no-repeat; 
+}
+
         header {
             background-color: #35b83b;
             color: rgb(65, 114, 146);
@@ -89,24 +122,28 @@
             background-color: white;
             border-radius: 8px;
         }
-        h1 {
-            color: #0c0c0c;
+        
+        h3{
+            color: #ffffff;
         }* {box-sizing:border-box}
 
-/* Slideshow container */
+        
+        h2{
+            color: #ffffff;
+        }* {box-sizing:border-box}
+
+        h1 {
+            color: #000000;
+        }* {box-sizing:border-box}
+
+
 .slideshow-container {
   max-width: 1000px;
   position: relative;
   margin: auto;
-}
-
-/* Hide the images by default */
-.mySlides {
+}.mySlides {
   display: none;
-}
-
-/* Next & previous buttons */
-.prev, .next {
+}.prev, .next {
   cursor: pointer;
   position: absolute;
   top: 50%;
@@ -119,17 +156,11 @@
   transition: 0.6s ease;
   border-radius: 0 3px 3px 0;
   user-select: none;
-}
-
-/* Position the "next button" to the right */
-.next {
+}.next {
   right: 0;
   border-radius: 3px 0 0 3px;
-}
-
-/* On hover, add a black background color with a little bit see-through */
-.prev:hover, .next:hover {
-  background-color: rgba(0,0,0,0.8);
+}.prev:hover, .next:hover {
+  background-color: rgba(9, 255, 0, 0.8);
 }
 
 /* Caption text */
@@ -141,19 +172,13 @@
   bottom: 8px;
   width: 100%;
   text-align: center;
-}
-
-/* Number text (1/3 etc) */
-.numbertext {
+}.numbertext {
   color: #f2f2f2;
   font-size: 12px;
   padding: 8px 12px;
   position: absolute;
   top: 0;
-}
-
-/* The dots/bullets/indicators */
-.dot {
+}.dot {
   cursor: pointer;
   height: 15px;
   width: 15px;
@@ -165,11 +190,8 @@
 }
 
 .active, .dot:hover {
-  background-color: #717171;
-}
-
-/* Fading animation */
-.fade {
+  background-color: #01eb20;
+}.fade {
   animation-name: fade;
   animation-duration: 1.5s;
 }
@@ -188,35 +210,36 @@
     <header>
       <h1 style="font-size: 3rem; font-weight: bold;" >Internet Tracking Company</h1>
     </header>
-    <!-- Slideshow container -->
+
 <div class="slideshow-container">
 
-  <!-- Full-width images with number and caption text -->
+
   <div class="mySlides fade">
     <div class="numbertext">1 / 3</div>
     <img src="assets/home1.png" style="height:320px;margin-left: -12rem; width:200%" >
-    <div class="text">Caption Text</div>
+    <div class="text" style="font-size: 2rem; font-weight: bold;">Baa-rilliant Goat Gags</div>
   </div>
 
   <div class="mySlides fade">
     <div class="numbertext">2 / 3</div>
     <img src="assets/home2.png" style="height:320px;margin-left: -12rem; width:200%">
-    <div class="text">Caption Two</div>
+    <div class="text"style="font-size: 2rem; font-weight: bold;">Goats Just Wanna Have Fun!</div>
   </div>
 
   <div class="mySlides fade">
     <div class="numbertext">3 / 3</div>
     <img src="assets/home3.png" style="height:320px;margin-left: -12rem; width:200%">
-    <div class="text">Caption Three</div>
+    <div class="text"style="font-size: 2rem; font-weight: bold;">A Goat's Life: Laughs from the Barnyard</div>
   </div>
 
-  <!-- Next and previous buttons -->
+  
+
   <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
   <a class="next" onclick="plusSlides(1)">&#10095;</a>
 </div>
 <br>
 
-<!-- The dots/circles -->
+
 <div style="text-align:center">
   <span class="dot" onclick="currentSlide(1)"></span>
   <span class="dot" onclick="currentSlide(2)"></span>
@@ -271,9 +294,10 @@
           <p></p>
         </div>
 
-        <div class="col-md-6" style="font-size: 100px; margin-top: 5rem">
-          <h1>Introduction</h1>
-          <p style=" margin-top:30px; display: flex" >
+        <div class="col-md-6" style="font-size: 100px;margin-right:-6rem; margin-top: 1rem">
+          <h2 style="font-size: 2.7rem;">Introduction</h2>
+          <h3>
+          <p style="font-size: 1.2rem; margin-top:30px; display: flex" >
             Goat tracking, the practice of monitoring and
             recording the movements, behaviors, and health of goats, has gained
             importance in modern livestock management. Traditionally, goats have
@@ -286,7 +310,7 @@
             they thrive. This essay explores the significance of goat tracking,
             its benefits, methods, and its role in improving goat farming and
             sustainable livestock management.
-          </p>
+          </p></h3>
         </div>
         <a href="page2.html"
           type="button"

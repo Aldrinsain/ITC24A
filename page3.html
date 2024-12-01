@@ -158,19 +158,54 @@
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             More
                         </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="page4.html">ABOUT US</a></li>
+                        <ul class="dropdown-menu"  style="background-color: #62ff77;">
+                            <li><a class="dropdown-item" href="page4.html">About Us</a></li>
                         </ul>
                     </li>
 
                         </ul>
 
                      </li>
-                </ul>
-                <form class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
-                </form>
+                
+          <form class="d-flex" role="search" method="GET" id="searchForm" style="margin-left: 54rem;">
+            <input
+              class="form-control me-2"
+              type="search"
+              placeholder="Search"
+              aria-label="Search"
+              name="query"
+              id="searchQuery"
+            />
+            <button class="btn btn-outline-success" type="submit">Search</button>
+          </form>
+          
+          <script>
+            document.getElementById('searchForm').onsubmit = function(event) {
+              event.preventDefault();
+          
+              var query = document.getElementById('searchQuery').value.trim().toLowerCase(); 
+            
+              var actionUrl = '';
+              if (query.includes("kanding")) {
+                actionUrl = 'seemore.html';
+              } else if (query.includes("date and time ")) {
+                actionUrl = 'page7.html';
+              } else if (query.includes("weather")) {
+                actionUrl = 'page5.html';
+              } else if (query.includes("about us")) {
+                actionUrl = 'page4.html';
+              } else if (query.includes("breeds of goats")) {
+                actionUrl = 'page3.html';
+              } else if (query.includes("map")) {
+                actionUrl = 'page2.html';
+              } else {
+                actionUrl = 'searchresults.html';  
+              }
+          
+              this.action = actionUrl;
+              this.submit();
+            };
+          </script>
             </div>
         </div>
     </nav>
