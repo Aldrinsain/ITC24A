@@ -107,13 +107,13 @@ class LeafletMap {
 
     
     dataCSS() {
-        this.addMarker(8.359576, 124.869183, 'Nubian');
+        this.addMarker(8.351333, 124.8743938, 'Nubian');
         this.attendanceCountCSS++;
         this.updateLogDisplay();
     }
 
     dataBA() {
-        this.addMarker(8.359141, 124.868592, 'Alpine Grazing');
+        this.addMarker(8.3732710, 124.8666358, 'Alpine Grazing');
         this.attendanceCountBA++;
         this.updateLogDisplay();
     }
